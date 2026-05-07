@@ -13,6 +13,6 @@ Tags must adhere to the naming convention described in [COPR docs](https://docs.
 
 ### Building locally
 
-0. Navigate into the subdirectory of the package you want to build
+1. Navigate into the subdirectory of the package you want to build
 1. Run `../vendor.sh` (Make sure spectool and cargo are installed)
-2. Run `fedpkg mockbuild` (Make sure fedpkg and mock are installed)
+1. Run `fedpkg mockbuild` (Make sure fedpkg and mock are installed)
