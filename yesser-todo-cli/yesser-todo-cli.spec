@@ -7,7 +7,7 @@
 %global crate yesser-todo-cli
 
 Name:           yesser-todo-cli
-Version:        1.2.0
+Version:        1.2.1
 Release:        %autorelease
 Summary:        To-do CLI written in Rust
 
