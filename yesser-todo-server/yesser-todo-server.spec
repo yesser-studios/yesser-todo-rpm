@@ -7,7 +7,7 @@
 %global crate yesser-todo-server
 
 Name:           yesser-todo-server
-Version:        1.0.0
+Version:        1.1.1
 Release:        %autorelease
 Summary:        Server for yesser-todo-cli written in Rust
 
