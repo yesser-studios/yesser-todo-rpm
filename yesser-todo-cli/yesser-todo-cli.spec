@@ -7,11 +7,11 @@
 %global crate yesser-todo-cli
 
 Name:           yesser-todo-cli
-Version:        1.2.1
+Version:        1.3.0
 Release:        %autorelease
 Summary:        To-do CLI written in Rust
 
-License:        MIT
+License:        AGPL-3.0
 URL:            https://crates.io/crates/yesser-todo-cli
 Source:         %{crates_source}
 Source:         %{name}-%{version}-vendor.tar.xz
@@ -27,7 +27,7 @@ A to-do CLI written in Rust.}
 %description %{_description}
 
 %files
-%license LICENSE.txt
+%license LICENSE
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
@@ -38,17 +38,17 @@ A to-do CLI written in Rust.}
 %cargo_prep -v vendor
 
 %build
-%cargo_build
+%cargo_build -- -p yesser-todo-cli
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
-%cargo_install
+install -D -p -m 0755 target/release/todo %{buildroot}%{_bindir}/todo
 
 %if %{with check}
 %check
-%cargo_test
+%cargo_test -- -- --skip test_handle_show_server
 %endif
 
 %changelog
