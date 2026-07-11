@@ -1,7 +1,7 @@
 SUBDIR := $(shell dirname $(spec))
 
 srpm:
-	cp ~/.curlrc ~/.curlrc.bak
+	[-f ~/.curlrc] && cp ~/.curlrc ~/.curlrc.bak || true
 	echo "user-agent = \"CoprBuilderCurl/1.0\"" >> ~/.curlrc
 
 	dnf install -y cargo spectool rpm-build git bash tar rpmspec
@@ -15,5 +15,5 @@ srpm:
 	  ./*.spec
 
 	rm ~/.curlrc
-	mv ~/.curlrc.bak ~/.curlrc
+	[-f ~/.curlrc.bak] && mv ~/.curlrc.bak ~/.curlrc || true
 
